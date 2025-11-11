@@ -1,0 +1,3 @@
+package proyekakhirjaringannirkabel;
+
+@license(LGPL);
