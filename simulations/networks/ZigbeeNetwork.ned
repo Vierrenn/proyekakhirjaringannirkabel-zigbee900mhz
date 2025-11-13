@@ -13,11 +13,11 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-package proyekakhirjaringannirkabel.simulations;
+package proyekakhirjaringannirkabel.simulations.networks;
 
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
-import inet.node.inet.WirelessHost;
-import inet.physicallayer.ieee802154.packetlevel.Ieee802154NarrowbandDimensionalRadioMedium;
+import inet.physicallayer.wireless.ieee802154.packetlevel.Ieee802154NarrowbandDimensionalRadioMedium;
+import proyekakhirjaringannirkabel.simulations.nodes.ZigbeeNode;
 
 network ZigbeeNetwork
 {
@@ -25,15 +25,17 @@ network ZigbeeNetwork
         @display("bgb=600,400");
     submodules:
         radioMedium: Ieee802154NarrowbandDimensionalRadioMedium {
-            @display("p=267,61");
+            @display("p=300,50");
         }
         configurator: Ipv4NetworkConfigurator {
             @display("p=100,100");
         }
-        zigbee1: WirelessHost {
-            @display("p=200,200");
+        coordinator: ZigbeeNode {
+            @display("p=100,200;i=device/antennatower");
         }
-        zigbee2: WirelessHost {
-            @display("p=400,200");
-        }
+        zigbee1: ZigbeeNode { @display("p=250,150"); }
+        zigbee2: ZigbeeNode { @display("p=250,250"); }
+        zigbee3: ZigbeeNode { @display("p=400,150"); }
+        zigbee4: ZigbeeNode { @display("p=400,250"); }
 }
+
